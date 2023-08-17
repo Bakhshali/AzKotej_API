@@ -1,7 +1,11 @@
 const { default: mongoose } = require("mongoose")
 
-const categoryScheme = new mongoose.Schema({
+const amenitiyScheme = new mongoose.Schema({
     name: {
+        type:String,
+        required:true
+    },
+    image: {
         type:String,
         required:true
     },
@@ -11,9 +15,9 @@ const categoryScheme = new mongoose.Schema({
             ref:"home"
         }
     ]
-    
+
 })
 
-const Category = new mongoose.model("categorySch", categoryScheme)
+const AmenitySch = new mongoose.model("amenitySch", amenitiyScheme)
 
-module.exports = { Category }
+module.exports = { AmenitySch }
