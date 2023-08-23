@@ -10,7 +10,11 @@ const regionScheme = mongoose.Schema({
             type:mongoose.Schema.Types.ObjectId,
             ref:"home"
         }
-    ]
+    ],
+    image:{
+        type:String,
+        require:true
+    }
 })
 
 const Region = new mongoose.model("regionSch", regionScheme)
