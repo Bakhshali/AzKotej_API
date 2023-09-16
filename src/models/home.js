@@ -1,10 +1,6 @@
 const { default: mongoose } = require("mongoose")
 
 const homeScheme = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
     price: {
         type: Number,
         min: 0
@@ -26,46 +22,47 @@ const homeScheme = new mongoose.Schema({
     longtitude: {
         type: Number
     },
-    amenities: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "amenity",
-            required:true
-        }
-    ],
-    categoryId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "category",
+    // amenities: [
+    //     {
+    //         type: mongoose.Schema.Types.ObjectId,
+    //         ref: "amenity",
+    //         required: true
+    //     }
+    // ],
+    // regionId: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: "region",
+    //     required: true
+    // },
+    photos: {
+        type: String,
         required:true
     },
-    regionId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "region",
-        required:true
+    description: {
+        type: String,
+        required: true
     },
-    maxGuestId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "maxGuest",
-        required:true
+    category: {
+        type: String,
+        required: true
     },
-    bedroomId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "bedroom",
-        required:true
+    maxGuest: {
+        type: Number
     },
-    bathroomId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "bathroom",
-        required:true
+    land: {
+        type: Number
     },
-    photos:{
-        type:[String]
+    roomCount: {
+        type: Number
     },
-    description:{
-        type:String,
-        required:true
+    bathRoom: {
+        type: Number,
+    },
+    bedRoom:{
+        type:Number
     },
     createdAt: { type: Date, default: Date.now }
+
 
 })
 
