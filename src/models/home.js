@@ -29,14 +29,13 @@ const homeScheme = new mongoose.Schema({
     //         required: true
     //     }
     // ],
-    // regionId: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: "region",
-    //     required: true
-    // },
+    regionId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "regionSch"
+    },
     photos: {
         type: String,
-        required:true
+        required: true
     },
     description: {
         type: String,
@@ -58,12 +57,12 @@ const homeScheme = new mongoose.Schema({
     bathRoom: {
         type: Number,
     },
-    bedRoom:{
-        type:Number
+    bedRoom: {
+        type: Number
     },
     createdAt: { type: Date, default: Date.now }
-
-
+}, {
+    timestamps: true
 })
 
 const HomeSch = new mongoose.model("homeSch", homeScheme)

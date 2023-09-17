@@ -12,6 +12,7 @@ db.connect()
 app.use('/api/userphn', userRoutes)
 app.use('/api', homeRoutes)
 app.use('/api', regionRootes)
+app.use('/uploads', express.static("uploads"))
 
 app.listen(7777, () => {
     console.log('Server is running...');

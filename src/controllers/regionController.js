@@ -4,11 +4,22 @@ const regionController = {
     add: (req, resp) => {
         const newRegion = new Region({
             name: req.body.name,
-            image: req.body.image
+            image:{
+                data:req.file.filename,
+                contentType:"image/png"
+            }
         })
-
-        newRegion.save();
-        resp.json(newRegion);
+        newRegion.save()
+        .then(resp=>{
+            resp.json({
+                message:"Region added successfully!"
+            })
+        })
+        .catch(error=>{
+            resp.json({
+                message:"An Error Occured!"
+            })
+        })
     },
     get: (req, resp) => {
         Region.find()
@@ -18,6 +29,13 @@ const regionController = {
             .catch((error) => {
                 resp.status(500).json(error);
             })
+    },
+    delete: (req, resp) => {
+        Region.findByIdAndDelete(req.params.id).then(data => {
+            resp.status(200).send(data)
+        }).catch(err => {
+            resp.status(500).send({ "msg": "Couldnt deleted" });
+        })
     }
 
 }

@@ -9,6 +9,7 @@ const homeController = {
             area: req.body.area,
             latitude: req.body.latitude,
             longtitude: req.body.longtitude,
+            regionId: req.body.regionId,
             photos: req.body.photos,
             description: req.body.description,
             category: req.body.category,
