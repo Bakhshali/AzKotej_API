@@ -8,11 +8,9 @@ const userController = {
         PhoneUser.findOne({ phone: req.body.phone })
             .then(data => {
                 if (data) {
-                    // User already exists, update the code and send a new code
                     data.code = randomCode;
                     data.save();
                 } else {
-                    // User does not exist, create a new user with the code
                     const newUser = new PhoneUser({
                         phone: req.body.phone,
                         code: randomCode
@@ -30,17 +28,17 @@ const userController = {
     },
     
     confirm: (req, resp) => {
-        const enteredCode = req.body.code; // The code entered by the user
+        const enteredCode = req.body.code; 
         PhoneUser.findOne({ phone: req.body.phone })
             .then(data => {
                 if (data) {
                     if (data.code === enteredCode) {
-                        resp.send("Code Confirmed!"); // Code matches, login successful
+                        resp.send("Code Confirmed!");
                     } else {
-                        resp.status(401).send("Incorrect Code"); // Code does not match, unauthorized
+                        resp.status(401).send("Incorrect Code");
                     }
                 } else {
-                    resp.status(404).send("User Not Found"); // User not found
+                    resp.status(404).send("User Not Found");
                 }
             })
             .catch(error => {
