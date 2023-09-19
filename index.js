@@ -9,7 +9,7 @@ app.use(express.json())
 
 db.connect()
 
-app.use('/api/userphn', userRoutes)
+app.use('/api/', userRoutes)
 app.use('/api', homeRoutes)
 app.use('/api', regionRootes)
 app.use('/uploads', express.static("uploads"))

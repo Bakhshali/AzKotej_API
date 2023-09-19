@@ -4,10 +4,11 @@ const regionController = {
     add: (req, resp) => {
         const newRegion = new Region({
             name: req.body.name,
-            image:{
-                data:req.file.filename,
-                contentType:"image/png"
-            }
+            // image:{
+            //     data:req.file.filename,
+            //     contentType:"image/png"
+            // }
+            image:req.body.image
         })
         newRegion.save()
         .then(resp=>{

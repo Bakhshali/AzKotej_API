@@ -3,6 +3,6 @@ const { userController } = require('../controllers/userController');
 
 const userRoutes = express.Router()
 
-userRoutes.post("/phauth", userController.auth)
+userRoutes.post("/phoneauth", userController.auth)
 
 module.exports = { userRoutes }

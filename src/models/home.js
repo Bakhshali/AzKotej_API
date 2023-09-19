@@ -22,6 +22,9 @@ const homeScheme = new mongoose.Schema({
     longtitude: {
         type: Number
     },
+    rent:{
+        type:String
+    },
     // amenities: [
     //     {
     //         type: mongoose.Schema.Types.ObjectId,
@@ -29,9 +32,12 @@ const homeScheme = new mongoose.Schema({
     //         required: true
     //     }
     // ],
-    regionId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "regionSch"
+    // regionId: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: "regionSch"
+    // },
+    region:{
+        type:String
     },
     photos: {
         type: String,
